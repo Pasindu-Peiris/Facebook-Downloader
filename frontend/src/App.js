@@ -1,10 +1,11 @@
-import Home from "./pages/Home";
+import DownloadHome from "./pages/DownloadHome";
+
 
 
 function App() {
   return (
     <div className="App">
-      <Home/>
+      <DownloadHome/>
       
     </div>
   );
