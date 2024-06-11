@@ -1,4 +1,5 @@
 import React from 'react'
+import Nav from './Nav'
 
 const DownloadHome = () => {
 
@@ -6,7 +7,7 @@ const DownloadHome = () => {
     return (
         <div>
 
-            <h1 className=' text-lg'>Download Home</h1>
+           <div className='navigation-block'> <Nav/> </div>
 
 
 
