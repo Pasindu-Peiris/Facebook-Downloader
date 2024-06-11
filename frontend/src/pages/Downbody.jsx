@@ -31,7 +31,7 @@ const Downbody = () => {
 
                     <form onSubmit={hadleSubmit} >
 
-                        <input type="link"
+                        <input type="url"
 
                         onChange={ (e) => {
                             setLink(e.target.value);
