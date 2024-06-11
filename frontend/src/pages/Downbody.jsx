@@ -22,7 +22,7 @@ const Downbody = () => {
 
             <div className=' logo block'>
                 <div className="logo  text-center">
-                    <a href='!' className=' text-3xl'><p><span className=' text-blue-600'>FB </span>.Save</p></a>
+                    <a href='!' className=' text-3xl'><p><span className=' text-blue-600'>FB </span>.Save </p> </a>
                     <p className=' text-xl p-2'>Facebook Video Online Free Downloader</p>
                     <p className=' text-gray-500'>Download Facebook Videos Online</p>
                 </div>

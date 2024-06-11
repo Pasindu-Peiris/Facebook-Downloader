@@ -12,7 +12,7 @@ const Nav = () => {
         </div>
 
         <ul className='menu flex items-center gap-6 text-white'>
-          <li><a href='!' className=' capitalize text-xl hover:text-blue-600'>How to ?</a></li>
+          <li><a href='!' className=' capitalize text-xl hover:text-blue-600 rounded'>How to ?</a></li>
         </ul>
 
       </nav>
