@@ -5,9 +5,17 @@ const DownloadHome = () => {
 
 
     return (
+
+
         <div>
 
-           <div className='navigation-block'> <Nav/> </div>
+            <div className='navigation-block'>
+                <Nav />
+            </div>
+
+            <div className=' bg-zinc-300'>
+                
+            </div>
 
 
 
