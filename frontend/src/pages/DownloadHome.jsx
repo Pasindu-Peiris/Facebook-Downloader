@@ -15,7 +15,7 @@ const DownloadHome = () => {
 
             </div>
 
-            <div className=' bg-zinc-200 '>
+            <div className=' bg-zinc-100 '>
                 <Downbody />
             </div>
 
