@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from './Nav'
+import Downbody from './Downbody'
 
 const DownloadHome = () => {
 
@@ -7,14 +8,15 @@ const DownloadHome = () => {
     return (
 
 
-        <div>
+        <div className='w-[100%] h-[100vh]'>
 
             <div className='navigation-block'>
                 <Nav />
+
             </div>
 
-            <div className=' bg-zinc-300'>
-                
+            <div className=' bg-zinc-200 '>
+                <Downbody />
             </div>
 
 
