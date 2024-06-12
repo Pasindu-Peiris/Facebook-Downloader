@@ -12,20 +12,25 @@ router.route("/add").post((req, res) => {
     newLink.save().then(() => res.json('Link added!')).catch(err => res.status(400).json('Error: ' + err));
 })
 
-const { ndown } = require("nayan-media-downloader")
-router.route("/getdata").get(async (req, res) => {
+const { ndown } = require("nayan-media-downloader");
 
-    const slink = req.body.slink;
+router.route("/getdata").post(async (req, res) => {
+
+    let link = req.body.slink;
 
     try {
         console.log("Downloading video...");
-        let URL = await ndown(slink)
-        console.log("Video downloaded:", URL);
-        res.json(URL);
+        let URL = await ndown(link).then((data) => {
+            res.json(data);
+        });
+        
+        
     } catch (error) {
         console.error("Failed to download video:", error);
         res.status(500).json({ error: "Error downloading video" });
     }
+
+
 });
 
 
