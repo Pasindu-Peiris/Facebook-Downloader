@@ -10,11 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 8090;
 
 app.use(bodyParser.json());
-app.use(cors({
-    origin: ["http://localhost:3000"],
-    methods:["POST","GET","PUT","DELETE"],
-    credentials: true
-}));
+app.use(cors());
 
 const  URL = process.env.MONGODB_URL;
 
