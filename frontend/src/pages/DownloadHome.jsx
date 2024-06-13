@@ -10,12 +10,10 @@ const DownloadHome = () => {
 
         <div className='w-[100%] h-[100vh]'>
 
-            <div className='navigation-block'>
-                <Nav />
-
-            </div>
+            
 
             <div className=' bg-zinc-100 '>
+                <Nav />
                 <Downbody />
             </div>
 
