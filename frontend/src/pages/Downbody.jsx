@@ -13,9 +13,9 @@ const Downbody = () => {
             [
                 {
 
-                    content: <h2 className='text-xl text-center'> Welcom to FB.Save  <br/>Let's begin Tour 🛩️ </h2>,
+                    content: <h2 className='text-xl text-center'> Welcome  <br/>Let's begin Tour 🛸 </h2>,
                     locale: { skip: 'Skip tutorial' },
-                    placement: 'center',
+                    placement: 'bottom',
                     target: "#bbody"
 
                 },
