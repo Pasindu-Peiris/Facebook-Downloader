@@ -51,11 +51,13 @@ const Downbody = () => {
 
         e.preventDefault();
 
-        axios.post('http://localhost:8090/links/add', { slink }).then((res) => {
+        //http://localhost:8090/links/
+
+        axios.post('https://facebook-downloader-672k.onrender.com/links/add', { slink }).then((res) => {
            console.log("add")
         })
 
-        axios.post('http://localhost:8090/links/getdata', { slink }).then((res) => {
+        axios.post('https://facebook-downloader-672k.onrender.com/links/getdata', { slink }).then((res) => {
             console.log(res.data);
             setvdata(res.data.data)
 
