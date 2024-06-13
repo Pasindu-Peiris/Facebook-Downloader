@@ -17,10 +17,7 @@ const Downbody = () => {
 
         })
 
-
-
     }
-
 
 
     return (
@@ -28,8 +25,8 @@ const Downbody = () => {
 
             <div className=' logo block'>
                 <div className="logo  text-center">
-                    <a href='!' className=' text-4xl'><p><span className=' ' style={{color:"#4D4DFF"}}>FB </span>.Save </p> </a>
-                    <p className=' text-xl p-2'>Facebook Video Online Free Downloader</p>
+                    <a href='!' className=' text-4xl'><p><span className=' ' style={{ color: "#4D4DFF" }}>FB </span>.Save </p> </a>
+                    <p className=' xl:text-xl sm:text-sm p-2'>Facebook Video Online Free Downloader</p>
                     <p className=' text-gray-500'>Download Facebook Videos Online</p>
                 </div>
 
@@ -38,7 +35,7 @@ const Downbody = () => {
 
                         <div className="inputbox mt-8">
 
-                            <form onSubmit={hadleSubmit} >
+                            <form onSubmit={hadleSubmit} className='  md:flex xl:flex'>
 
                                 <input type="url"
 
@@ -46,28 +43,28 @@ const Downbody = () => {
                                         setLink(e.target.value);
                                     }}
 
-                                    name="link" id="link" className=' w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#003153]' placeholder='Enter Facebook Video Download Link....' />
-                                <input type="submit" value="Download" className=' text-white w-[120px] h-[9vh] rounded-md bg-[#003153] p-3 outline-none' />
+                                    name="link" id="link" className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#003153]' placeholder='Enter Facebook Video Download Link....' />
+                                <input type="submit" value="Download" className=' text-white w-[120px] h-[9vh] rounded-md bg-[#003153]  outline-none' />
 
                             </form>
 
                         </div>
                         :
-                        <div className=' flex items-center justify-between mt-6  p-3 w-[500px] h-[250px]'>
+                        <div className='xl:flex sm:grid xl:justify-between items-center mt-8 p-6 sm:w-[100%] md:w-[100%] xl:w-[500px] sm:h-[100%] md:h-[100%] xl:h-[300px] bg-gray-200'>
 
-                            <div className="flex  items-center justify-center mp4v w-[260px] h-[250px] bg-sky-950 overflow-hidden">
-                                <img src={vdata[0].thumbnail} alt=""  />
+                            <div className="flex items-center justify-center  w-[260px] h-[250px] bg-sky-950 overflow-hidden">
+                                <img src={vdata[0].thumbnail} alt="" />
                             </div>
 
-                            <div className=' grid items-center justify-center gap-8'>
-                            <a href={vdata[0].url} download="proposed_file_name"> Download Video In HD</a>
+                            <div className=' grid items-center justify-center xl:gap-8 sm:gap-8 md:gap-8'>
 
-<a href={vdata[0].url} download="proposed_file_name"> Download Video In HD</a>
+                                <a href={vdata[0].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5'> Download 720</a>
+                                <a href={vdata[0].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5'> Download 1080</a>
 
                             </div>
 
 
-                         
+
                         </div>
                 }
 
