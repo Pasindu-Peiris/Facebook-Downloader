@@ -20,11 +20,10 @@ const DownloadHome = () => {
 
 
 
-
         </div>
     )
 
 
 }
 
-export default DownloadHome
+export default DownloadHome;
