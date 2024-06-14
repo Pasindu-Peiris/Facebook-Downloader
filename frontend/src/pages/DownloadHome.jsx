@@ -8,14 +8,13 @@ const DownloadHome = () => {
     return (
 
 
-        <div className='w-[100%] h-[100vh]'>
+        <div className=''>
 
-            
 
-            <div className=' bg-zinc-100 '>
-                <Nav />
-                <Downbody />
-            </div>
+
+
+            <Nav />
+            <Downbody />
 
 
 
