@@ -48,7 +48,7 @@ const Downbody = () => {
     const [vdata, setvdata] = useState(null)
 
     const notify = () => toast('👽 Wait Few Seconds!', {
-        position: "bottom-center",
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -59,8 +59,8 @@ const Downbody = () => {
 
     });
 
-    const notify2 = () => toast('👽 link is not a Facebook!', {
-        position: "bottom-center",
+    const notify2 = () => toast('👽 Invalide link !', {
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
