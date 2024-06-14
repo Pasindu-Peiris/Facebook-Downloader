@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Preload from './Preload'
 import Joyride, { STATUS } from 'react-joyride';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Downbody = () => {
 
@@ -13,16 +15,15 @@ const Downbody = () => {
             [
                 {
 
-                    content: <h2 className='text-xl text-center'> Welcome  <br/>Let's begin Tour 🛸 </h2>,
+                    content: <h2 className='text-xl text-center'> Welcome  <br />Let's begin Tour 🛸 </h2>,
                     locale: { skip: 'Skip tutorial' },
-                    placement: 'bottom',
+                    placement: 'center',
                     target: "#bbody"
 
                 },
                 {
 
-                    content: <h2 className='text-xl'>Enter Your Video Link 🚀</h2>
-                    ,
+                    content: <h2 className='text-xl'>Enter Your Video Link 🚀</h2>,
                     locale: { skip: 'Skip tutorial' },
                     placement: 'bottom',
                     target: "#bot",
@@ -38,34 +39,49 @@ const Downbody = () => {
                     title: "Second Step"
 
                 },
-                
+
             ]
 
     })
 
     const [slink, setLink] = useState('')
     const [vdata, setvdata] = useState(null)
-
+   
+    const notify = () => toast('👽 Wait Few Seconds!', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+       
+    });
 
     const hadleSubmit = (e) => {
 
         e.preventDefault();
+        notify()
+        setIsLoading1(false)
 
         //http://localhost:8090/links/
 
         axios.post('https://facebook-downloader-672k.onrender.com/links/add', { slink }).then((res) => {
-           console.log("add")
+            console.log("add")
         })
 
         axios.post('https://facebook-downloader-672k.onrender.com/links/getdata', { slink }).then((res) => {
             console.log(res.data);
-            setvdata(res.data.data)
+            setvdata(res.data.data);
+           
 
         })
 
     }
 
     const [isLoading, setIsLoading] = useState(true);
+    const [isLoading1, setIsLoading1] = useState(true);
 
     useEffect(() => {
 
@@ -92,13 +108,13 @@ const Downbody = () => {
 
             <div className=' logo block'>
                 <div className="logo  text-center">
-                    <a href='!' className=' text-4xl' ><p id={`bbody`}><span className=' ' style={{ color: "#4D4DFF" }}>FB </span>.Save </p> </a>
+                    <a href='/' className=' text-4xl' ><p id={`bbody`}><span className=' ' style={{ color: "#4D4DFF" }}>FB </span>.Save </p> </a>
                     <p className=' xl:text-xl sm:text-sm p-2'>Facebook Video Online Free Downloader</p>
                     <p className=' text-gray-500'>Download Facebook Videos Online</p>
                 </div>
 
                 {
-                    vdata == null ?
+                    isLoading1 ?
 
                         <div className="inputbox mt-8">
 
@@ -141,7 +157,19 @@ const Downbody = () => {
                 }
 
             </div>
-
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+               
+               />
 
         </div>
     )
