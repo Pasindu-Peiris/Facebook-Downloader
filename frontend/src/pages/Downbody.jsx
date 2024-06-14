@@ -46,7 +46,7 @@ const Downbody = () => {
 
     const [slink, setLink] = useState('')
     const [vdata, setvdata] = useState(null)
-   
+
     const notify = () => toast('👽 Wait Few Seconds!', {
         position: "bottom-center",
         autoClose: 5000,
@@ -56,27 +56,42 @@ const Downbody = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-       
+
+    });
+
+    const notify2 = () => toast('👽 link is not a Facebook!', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+
     });
 
     const hadleSubmit = (e) => {
 
         e.preventDefault();
-        notify()
-        setIsLoading1(false)
+
 
         //http://localhost:8090/links/
+
+
+        axios.post('https://facebook-downloader-672k.onrender.com/links/getdata', { slink }).then((res) => {
+            console.log(res.data);
+            setvdata(res.data.data);
+
+
+        })
 
         axios.post('https://facebook-downloader-672k.onrender.com/links/add', { slink }).then((res) => {
             console.log("add")
         })
 
-        axios.post('https://facebook-downloader-672k.onrender.com/links/getdata', { slink }).then((res) => {
-            console.log(res.data);
-            setvdata(res.data.data);
-           
-
-        })
+        notify()
+        setIsLoading1(false)
 
     }
 
@@ -92,9 +107,27 @@ const Downbody = () => {
 
     })
 
+    const [message, setMessage] = useState('');
+
+    function checkLink(inputdata) {
+
+        const facebookPattern = /^https?:\/\/(www\.)?facebook\.com/;
+        const resultElement = inputdata;
+
+        if (facebookPattern.test(resultElement)) {
+            setMessage("The link is a Facebook link.")
+            document.getElementById('step1').disabled = false;
+        } else {
+            setMessage("The link is not a Facebook link.")
+            document.getElementById('step1').disabled = true;
+            notify2();
+
+
+        }
+    }
 
     return (
-        <div className=' w-[100%] h-[100vh] flex items-center justify-center'>
+        <div className=' xl:w-[100%] h-[100vh] flex items-center justify-center'>
 
             <Joyride
                 continuous
@@ -120,10 +153,15 @@ const Downbody = () => {
 
                             <form onSubmit={hadleSubmit} className='  md:flex xl:flex'>
 
+
                                 <input type="url"
 
                                     onChange={(e) => {
                                         setLink(e.target.value);
+                                    }}
+
+                                    onKeyUp={(e) => {
+                                        checkLink(e.target.value);
                                     }}
 
                                     name="link" id={`bot`} className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#003153]' placeholder='Enter Facebook Video Download Link....' />
@@ -139,16 +177,24 @@ const Downbody = () => {
 
                             {isLoading ? <Preload /> : <div className='xl:flex sm:grid xl:justify-between items-center mt-8 p-6 sm:w-[100%] md:w-[100%] xl:w-[500px] sm:h-[100%] md:h-[100%] xl:h-[300px] bg-gray-200'>
 
-                                <div className="flex items-center justify-center  w-[260px] h-[250px] bg-sky-950 overflow-hidden">
-                                    <img src={vdata[0].thumbnail} alt="" />
-                                </div>
+                                {
+                                    vdata === null || undefined || vdata.length < 3?
+                                        <>
+                                        <h2>No Data Is Available... 👾</h2>
+                                        </>
 
-                                <div className=' grid items-center justify-center xl:gap-8 sm:gap-8 md:gap-8'>
+                                        : <>
+                                            <div className="flex items-center justify-center  w-[260px] h-[250px] bg-sky-950 overflow-hidden">
+                                                <img src={vdata[0].thumbnail} alt="" />
+                                            </div>
 
-                                    <a href={vdata[0].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5' id={`map1`}> Download {vdata[0].resolution}</a>
-                                    <a href={vdata[1].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5'> Download {vdata[1].resolution}</a>
+                                            <div className=' grid items-center justify-center xl:gap-8 sm:gap-8 md:gap-8'>
 
-                                </div>
+                                                <a href={vdata[0].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5' id={`map1`}> Download {vdata[0].resolution}</a>
+                                                <a href={vdata[1].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5'> Download {vdata[1].resolution}</a>
+
+                                            </div></>
+                                }
 
                             </div>}
 
@@ -168,8 +214,8 @@ const Downbody = () => {
                 draggable
                 pauseOnHover
                 theme="dark"
-               
-               />
+
+            />
 
         </div>
     )
