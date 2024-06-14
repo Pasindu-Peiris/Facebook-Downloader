@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <div>
 
-      <nav className='w-[100%] h-20  flex items-center justify-around border-b-2 fixed' style={{backgroundColor:" #003153"}}>
+      <nav className='w-[100%] h-20  flex items-center justify-around border-b-2 fixed' style={{backgroundColor:" #BB86FC"}}>
 
         <div className="logo text-white">
           <a href='/' className=' text-2xl flex items-center justify-start'><p><span className=' text-[#2D68C4] '>FB </span>.Save</p></a>
