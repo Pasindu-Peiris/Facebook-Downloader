@@ -179,7 +179,7 @@ const Downbody = () => {
                                         checkLink(e.target.value);
                                     }}
 
-                                    name="link" id={`bot`} className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#231a2f] bg-slate-800  text-black' placeholder='Enter Facebook Video Download Link....' />
+                                    name="link" id={`bot`} className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#231a2f] bg-slate-800  text-white' placeholder='Enter Facebook Video Download Link....' />
                                 <input type="submit" id={`step1`} value="Download" className=' cursor-pointer text-[#231a2f] w-[120px] h-[9vh] rounded-md bg-[#BB86FC]  outline-none' />
 
                             </form>
@@ -193,9 +193,11 @@ const Downbody = () => {
                             {isLoading ? <Preload /> : <div className='xl:flex sm:grid xl:justify-between items-center mt-8 p-6 sm:w-[100%] md:w-[100%] xl:w-[500px] sm:h-[100%] md:h-[100%] xl:h-[300px] bg-zinc-800'>
 
                                 {
-                                    vdata === null || undefined || vdata.length < 3?
-                                        <div className='flex item-center justify-center'>
-                                        <h1 className='text-center'>No Data Is Available... 👾</h1>
+                                    vdata === null || vdata === undefined || vdata.length < 3 ?
+                                        <div className='grid item-center justify-center'>
+                                            <h1 className='text-center'>No Data Is Available... 👾</h1>
+                                            <a href="/"  className=' w-[auto] bg-[#BB86FC] rounded-xl  text-[#231a2f] p-3 mt-8 flex text-center justify-center '> Back To Home</a>
+
                                         </div>
 
                                         : <>
@@ -231,6 +233,9 @@ const Downbody = () => {
                 theme="dark"
 
             />
+            <div className='w-[100%] h-10  flex items-center justify-center fixed bottom-0' style={{ backgroundColor: " #171617" }}> <p className=' text-white'>© 2024 | 2.Peiris</p></div>  
+
+
 
         </div>
     )
