@@ -126,6 +126,17 @@ const Downbody = () => {
         }
     }
 
+    const customStyles = {
+        tooltip: {
+            backgroundColor: '#ffeb3b', // Change to your desired background color
+            color: '#000', // Change text color if necessary
+        },
+        button: {
+            backgroundColor: '#f57c00', // Change button color if necessary
+            color: '#fff', // Change text color of buttons
+        },
+    };
+
     return (
         <div className=' xl:w-[100%] h-[100vh] flex items-center justify-center'>
 
@@ -137,11 +148,15 @@ const Downbody = () => {
                 hideCloseButton
                 scrollToFirstStep
                 showSkipButton
-                showProgress />
+                showProgress
+                styles={{
+                    options: customStyles.tooltip,
+                    button: customStyles.button,
+                }} />
 
             <div className=' logo block'>
                 <div className="logo  text-center">
-                    <a href='/' className=' text-4xl' ><p id={`bbody`}><span className=' ' style={{ color: "#4D4DFF" }}>FB </span>.Save </p> </a>
+                    <a href='/' className=' text-4xl' ><p id={`bbody`}><span className=' ' style={{ color: "#BB86FC" }}>FB </span>.Save </p> </a>
                     <p className=' xl:text-xl sm:text-sm p-2'>Facebook Video Online Free Downloader</p>
                     <p className=' text-gray-500'>Download Facebook Videos Online</p>
                 </div>
@@ -164,8 +179,8 @@ const Downbody = () => {
                                         checkLink(e.target.value);
                                     }}
 
-                                    name="link" id={`bot`} className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#003153]' placeholder='Enter Facebook Video Download Link....' />
-                                <input type="submit" id={`step1`} value="Download" className=' cursor-pointer text-white w-[120px] h-[9vh] rounded-md bg-[#003153]  outline-none' />
+                                    name="link" id={`bot`} className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#231a2f] bg-slate-800  text-black' placeholder='Enter Facebook Video Download Link....' />
+                                <input type="submit" id={`step1`} value="Download" className=' cursor-pointer text-[#231a2f] w-[120px] h-[9vh] rounded-md bg-[#BB86FC]  outline-none' />
 
                             </form>
 
@@ -175,13 +190,13 @@ const Downbody = () => {
                         </div>
                         : <>
 
-                            {isLoading ? <Preload /> : <div className='xl:flex sm:grid xl:justify-between items-center mt-8 p-6 sm:w-[100%] md:w-[100%] xl:w-[500px] sm:h-[100%] md:h-[100%] xl:h-[300px] bg-gray-200'>
+                            {isLoading ? <Preload /> : <div className='xl:flex sm:grid xl:justify-between items-center mt-8 p-6 sm:w-[100%] md:w-[100%] xl:w-[500px] sm:h-[100%] md:h-[100%] xl:h-[300px] bg-zinc-800'>
 
                                 {
                                     vdata === null || undefined || vdata.length < 3?
-                                        <>
-                                        <h2>No Data Is Available... 👾</h2>
-                                        </>
+                                        <div className='flex item-center justify-center'>
+                                        <h1 className='text-center'>No Data Is Available... 👾</h1>
+                                        </div>
 
                                         : <>
                                             <div className="flex items-center justify-center  w-[260px] h-[250px] bg-sky-950 overflow-hidden">
@@ -190,8 +205,8 @@ const Downbody = () => {
 
                                             <div className=' grid items-center justify-center xl:gap-8 sm:gap-8 md:gap-8'>
 
-                                                <a href={vdata[0].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5' id={`map1`}> Download {vdata[0].resolution}</a>
-                                                <a href={vdata[1].url} download="proposed_file_name" className=' bg-slate-800 text-white p-3 rounded-sm mt-5'> Download {vdata[1].resolution}</a>
+                                                <a href={vdata[0].url} download="proposed_file_name" className=' bg-[#BB86FC] text-[#231a2f] p-3 rounded-sm mt-5' id={`map1`}> Download {vdata[0].resolution}</a>
+                                                <a href={vdata[1].url} download="proposed_file_name" className=' bg-[#BB86FC]  text-[#231a2f] p-3 rounded-sm mt-5'> Download {vdata[1].resolution}</a>
 
                                             </div></>
                                 }
