@@ -10,7 +10,7 @@ const Preload = () => {
             <Blocks
                 height="80"
                 width="80"
-                color="#4fa94d"
+                color="#BB86FC"
                 ariaLabel="blocks-loading"
                 wrapperStyle={{}}
                 wrapperClass="blocks-wrapper"
