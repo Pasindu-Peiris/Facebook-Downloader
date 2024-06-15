@@ -5,10 +5,10 @@ const Nav = () => {
   return (
     <div>
 
-      <nav className='w-[100%] h-20  flex items-center justify-around  fixed' style={{backgroundColor:" #BB86FC"}}>
+      <nav className='w-[100%] h-20  flex items-center justify-around  fixed' style={{backgroundColor:" #2874A6"}}>
 
         <div className="logo text-white">
-          <a href='/' className=' text-2xl flex items-center justify-start'><p><span className=' text-[#231a2f] '>FB </span>.Save</p></a>
+          <a href='/' className=' text-3xl flex items-center justify-start'><p><span className=' text-[#1a1d2f] '>FB </span>.Save</p></a>
         </div>
 
         {/* <ul className='menu flex items-center gap-6 text-white'>
