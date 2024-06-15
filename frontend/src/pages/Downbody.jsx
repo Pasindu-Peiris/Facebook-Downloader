@@ -128,11 +128,11 @@ const Downbody = () => {
 
     const customStyles = {
         tooltip: {
-            backgroundColor: '#ffeb3b', // Change to your desired background color
+            backgroundColor: '#5DADE2 ', // Change to your desired background color
             color: '#000', // Change text color if necessary
         },
         button: {
-            backgroundColor: '#f57c00', // Change button color if necessary
+            backgroundColor: '#5DADE2 ', // Change button color if necessary
             color: '#fff', // Change text color of buttons
         },
     };
@@ -156,7 +156,7 @@ const Downbody = () => {
 
             <div className=' logo block'>
                 <div className="logo  text-center">
-                    <a href='/' className=' text-4xl' ><p id={`bbody`}><span className=' ' style={{ color: "#BB86FC" }}>FB </span>.Save </p> </a>
+                    <a href='/' className=' text-4xl' ><p id={`bbody`}><span className=' ' style={{ color: "#2874A6" }}>FB </span>.Save </p> </a>
                     <p className=' xl:text-xl sm:text-sm p-2'>Facebook Video Online Free Downloader</p>
                     <p className=' text-gray-500'>Download Facebook Videos Online</p>
                 </div>
@@ -179,8 +179,8 @@ const Downbody = () => {
                                         checkLink(e.target.value);
                                     }}
 
-                                    name="link" id={`bot`} className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#231a2f] bg-slate-800  text-white' placeholder='Enter Facebook Video Download Link....' />
-                                <input type="submit" id={`step1`} value="Download" className=' cursor-pointer text-[#231a2f] w-[120px] h-[9vh] rounded-md bg-[#BB86FC]  outline-none' />
+                                    name="link" id={`bot`} className=' md:w-[450px] xl:w-[550px] h-[9vh] p-3 outline-none mx-2 border-solid border-2 rounded-md border-[#1a1d2f] bg-slate-800  text-white' placeholder='Enter Facebook Video Download Link....' />
+                                <input type="submit" id={`step1`} value="Download" className=' cursor-pointer text-[#1a1d2f] w-[120px] h-[9vh] rounded-md bg-[#2874A6]  outline-none' />
 
                             </form>
 
@@ -193,26 +193,30 @@ const Downbody = () => {
                             {isLoading ? <Preload /> : <div className='xl:flex sm:grid xl:justify-between items-center mt-8 p-6 sm:w-[100%] md:w-[100%] xl:w-[500px] sm:h-[100%] md:h-[100%] xl:h-[300px] bg-zinc-800'>
 
                                 {
-                                    vdata === null || vdata === undefined || vdata.length < 3 ?
-                                        <div className='grid item-center justify-center'>
-                                            <h1 className='text-center'>No Data Is Available... 👾</h1>
-                                            <a href="/"  className=' w-[auto] bg-[#BB86FC] rounded-xl  text-[#231a2f] p-3 mt-8 flex text-center justify-center '> Back To Home</a>
+                                    vdata !== null ?
+                                        <>
+                                            {
+                                                vdata.length < 2 ?
+                                                    <div className='grid item-center justify-center'>
+                                                        <h1 className='text-center'>No Data Is Available... 👾</h1>
+                                                        <a href="/" className=' w-[auto] bg-[#2874A6] rounded-xl  text-[#1a1d2f] p-3 mt-8 flex text-center justify-center '> Back To Home</a>
 
-                                        </div>
+                                                    </div>
 
-                                        : <>
-                                            <div className="flex items-center justify-center  w-[260px] h-[250px] bg-sky-950 overflow-hidden">
-                                                <img src={vdata[0].thumbnail} alt="" />
-                                            </div>
+                                                    : <>
+                                                        <div className="flex items-center justify-center  w-[260px] h-[250px] bg-sky-950 overflow-hidden">
+                                                            <img src={vdata[0].thumbnail} alt="" />
+                                                        </div>
 
-                                            <div className=' grid items-center justify-center xl:gap-8 sm:gap-8 md:gap-8'>
+                                                        <div className=' grid items-center justify-center xl:gap-8 sm:gap-8 md:gap-8'>
 
-                                                <a href={vdata[0].url} download="proposed_file_name" className=' bg-[#BB86FC] text-[#231a2f] p-3 rounded-sm mt-5' id={`map1`}> Download {vdata[0].resolution}</a>
-                                                <a href={vdata[1].url} download="proposed_file_name" className=' bg-[#BB86FC]  text-[#231a2f] p-3 rounded-sm mt-5'> Download {vdata[1].resolution}</a>
+                                                            <a href={vdata[0].url} download="proposed_file_name" className=' bg-[#2874A6] text-[#1a1d2f] p-3 rounded-sm mt-5' id={`map1`}> Download {vdata[0].resolution}</a>
+                                                            <a href={vdata[1].url} download="proposed_file_name" className=' bg-[#2874A6]  text-[#1a1d2f] p-3 rounded-sm mt-5'> Download {vdata[1].resolution}</a>
 
-                                            </div></>
+                                                        </div></>
+                                            }
+                                        </> : <><Preload /></>
                                 }
-
                             </div>}
 
 
@@ -233,7 +237,7 @@ const Downbody = () => {
                 theme="dark"
 
             />
-            <div className='w-[100%] h-10  flex items-center justify-center fixed bottom-0' style={{ backgroundColor: " #171617" }}> <p className=' text-white'>© 2024 | 2.Peiris</p></div>  
+            <div className='w-[100%] h-10  flex items-center justify-center fixed bottom-0' style={{ backgroundColor: " #171617" }}> <p className=' text-white'>© 2024 | 2.Peiris</p></div>
 
 
 
